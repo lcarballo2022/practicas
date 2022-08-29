@@ -23,7 +23,7 @@
       let arreglo = [];
 
       function guarda() {
-        if (arreglo.length === 1) {
+        if (arreglo.length === 9) {
           //   document.getElementById("total").innerHTML = "";
           //    arreglo = [];
           //deshabilitar un boton
@@ -44,7 +44,7 @@
         arreglo.push(linea);
         document.getElementById("contador").innerHTML =
           "Cantidad " + arreglo.length;
-        if (arreglo.length === 2) {
+        if (arreglo.length === 10) {
           arreglo.sort((a, b) => (a.yearN > b.yearN ? -1 : 1));
           for (let i = 0; i < arreglo.length; i++) {
             document.getElementById("total").innerHTML =
