@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+  </head>
+
+  <body>
+    <h1><span id="contador"> cantidad </span></h1>
+    <label>nombre</label>
+    <input type="text" id="nombre" /><br />
+    <label>apellido</label>
+    <input type="text" id="apellido" /><br />
+    <label>telefono</label>
+    <input type="text" id="tel" /><br />
+    <button id="guarda" onclick="guarda()">guarda</button>
+    <h1><span id="total"></span></h1>
+    <script>
+      let arreglo = [];
+      function guarda() {
+        if (arreglo.length === 10) {
+          document.getElementById("total").innerHTML = "";
+          arreglo = [];
+          //deshabilitar un boton
+          //document.getElementById('guarda').setAttribute('disabled','disable')
+        }
+        let nombre = document.getElementById("nombre").value;
+
+        let ap = document.getElementById("apellido").value;
+        let tel = document.getElementById("tel").value;
+        let linea = [nombre, ap, tel];
+        arreglo.push(linea);
+        document.getElementById("contador").innerHTML =
+          "Cantidad " + arreglo.length;
+        if (arreglo.length === 10) {
+          for (let i = 0; i < arreglo.length; i++) {
+            document.getElementById("total").innerHTML =
+              document.getElementById("total").innerHTML + arreglo[i] + "<br>";
+          }
+        }
+        document.getElementById("nombre").value = "";
+        document.getElementById("apellido").value = "";
+        document.getElementById("tel").value = "";
+      }
+    </script>
+  </body>
+</html>
